@@ -1,5 +1,6 @@
 ﻿@page "/addnew"
 @inject DeviceService DeviceService
+@inject NavigationManager NavigationManager
 
 <h3>AddDevice</h3>
 
@@ -23,6 +24,7 @@
         </div>
         <div class="actions">
             <button class="button">OK</button>
+            <a class="button" href="/">キャンセル</a>
         </div>
     </EditForm>
 </div>
@@ -38,6 +40,8 @@
 
         await DeviceService.AddDeviceAsync(NewDevice);
         NewDevice = new Device();
+
+        NavigationManager.NavigateTo("/");
     }
 
 }
